@@ -1,0 +1,112 @@
+===== RUN 2026-01-30_20-29-44 =====
+sending incremental file list
+./
+file1.txt
+file2.txt
+docs/
+
+sent 265 bytes  received 65 bytes  660.00 bytes/sec
+total size is 11  speedup is 0.03
+[OK] rsync succeeded
+
+===== RUN 2026-01-30_20-37-56 =====
+sending incremental file list
+./
+file1.txt
+file2.txt
+docs/
+
+sent 265 bytes  received 65 bytes  660.00 bytes/sec
+total size is 11  speedup is 0.03
+[OK] rsync succeeded
+
+===== RUN Fri Jan 30 20:52:09 CET 2026 =====
+sending incremental file list
+./
+file1.txt
+file2.txt
+docs/
+
+sent 265 bytes  received 65 bytes  660.00 bytes/sec
+total size is 11  speedup is 0.03
+[OK] rsync succeeded (exit=0)
+[INFO] rotation: nothing to delete (keep last 7)
+===== RUN Fri Jan 30 21:02:34 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-30 already exists
+===== RUN Fri Jan 30 21:54:35 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-30 already exists
+===== RUN Fri Jan 30 22:01:10 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-30 already exists
+===== RUN Fri Jan 30 22:04:03 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-30 already exists
+===== RUN Fri Jan 30 22:05:35 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-30 already exists
+===== RUN Fri Jan 30 22:06:49 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-30 already exists
+===== RUN Sat Jan 31 20:47:08 CET 2026 =====
+sending incremental file list
+./
+file1.txt
+file2.txt
+docs/
+
+sent 265 bytes  received 65 bytes  660.00 bytes/sec
+total size is 11  speedup is 0.03
+[OK] rsync succeeded (exit=0)
+[INFO] rotation: nothing to delete (keep last 7)
+===== RUN Sat Jan 31 20:58:52 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-31 already exists
+===== RUN Sat Jan 31 21:03:47 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-31 already exists
+===== RUN Sat Jan 31 21:13:41 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-31 already exists
+===== RUN Sat Jan 31 21:56:05 CET 2026 =====
+[ERROR] backup /home/maliliknux/backup-lab/backups/2026-01-31 already exists
+===== RUN Sat Jan 31 22:05:55 CET 2026 =====
+sending incremental file list
+./
+file1.txt
+file2.txt
+docs/
+
+sent 265 bytes  received 65 bytes  660.00 bytes/sec
+total size is 11  speedup is 0.03
+[OK] rsync succeeded
+[INFO] rotation: deleting old backups:
+2026-01-30
+===== RUN Sat Jan 31 22:08:43 CET 2026 =====
+sending incremental file list
+./
+file1.txt
+file2.txt
+docs/
+
+sent 265 bytes  received 65 bytes  660.00 bytes/sec
+total size is 11  speedup is 0.03
+[OK] rsync succeeded
+[INFO] rotation: deleting old backups:
+2026-01-30_20-29-44
+===== RUN Sat Jan 31 22:20:50 CET 2026 =====
+sending incremental file list
+./
+file1.txt
+file2.txt
+docs/
+
+sent 265 bytes  received 65 bytes  660.00 bytes/sec
+total size is 11  speedup is 0.03
+[OK] rsync succeeded
+[INFO] rotation: deleting old backups:
+2026-01-30_20-37-56
+===== RUN Sun Feb  1 14:29:49 CET 2026 =====
+sending incremental file list
+./
+file1.txt
+file2.txt
+docs/
+
+sent 265 bytes  received 65 bytes  660.00 bytes/sec
+total size is 11  speedup is 0.03
+[OK] rsync succeeded
+[INFO] rotation: deleting old backups:
+2026-01-31
