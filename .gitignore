@@ -1,4 +1,5 @@
 # generated
+scripts/backup.conf
 backups/
 logs/
 *.log
