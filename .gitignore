@@ -1,5 +1,8 @@
 # generated
 scripts/backup.conf
+scripts/*local*.conf
+scripts/*REMOTE*.conf
 backups/
 logs/
 *.log
+tmp/
