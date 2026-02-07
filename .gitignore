@@ -2,6 +2,7 @@
 scripts/backup.conf
 scripts/*local*.conf
 scripts/*REMOTE*.conf
+scripts/backup.conf.d
 backups/
 logs/
 *.log
