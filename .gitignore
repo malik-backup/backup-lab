@@ -7,3 +7,6 @@ backups/
 logs/
 *.log
 tmp/
+
+# generated archives
+archives/
