@@ -1,22 +1,33 @@
-# backup-lab (bash + rsync)
+# backup-lab — Linux backup automation (Bash + rsync)
 
-Simple Bash backup lab using `rsync`.
+Professional Bash project demonstrating automated Linux backup workflows with logging, compression, and basic system administration tasks.
 
-This project demonstrates a small, configurable backup script with logging and dry-run testing. It is designed as a learning and portfolio project for Linux backup automation.
+This repository simulates real-world maintenance operations performed by Linux administrators.
+
+---
 
 ## Features
 
-- Local backup using `rsync`
-- Dry-run mode for safe testing
-- Timestamped execution logs
-- Clean and organized project structure
-- Generated files are not tracked by Git (see `.gitignore`)
+* Automated local backup using **rsync**
+* Dry-run mode for safe testing
+* Timestamped execution logs
+* Archive compression using **tar.gz**
+* Disk usage monitoring and quick space checks
+* Log inspection and service troubleshooting with **journalctl**
+* Basic system service management (**systemctl**)
+* Clean and organized project structure
 
-## Requirements
+---
 
-- Linux or WSL
-- bash
-- rsync
+## Tech stack
+
+* Linux / WSL
+* Bash
+* rsync
+* tar
+* systemctl / journalctl
+
+---
 
 ## Quick start
 
@@ -26,21 +37,41 @@ cd backup-lab
 bash scripts/backup.sh
 ```
 
-Dry run (simulation mode, no files written):
+Dry-run (simulation mode, no files written):
 
 ```bash
 DRY_RUN=1 bash scripts/backup.sh
 ```
 
+---
+
 ## Project structure
 
 ```
 backup-lab/
-├── scripts/    backup script(s)
-├── data/       sample data to back up
-├── backups/    output directory (not tracked by Git)
-├── logs/       execution logs (not tracked by Git)
+├── scripts/    # backup automation scripts
+├── data/       # sample data to back up
+├── backups/    # generated archives (ignored by Git)
+├── logs/       # execution logs (ignored by Git)
 └── README.md
 ```
 
-Portfolio project focused on Bash scripting and backup automation.
+---
+
+## Skills demonstrated
+
+This project showcases practical Linux administration skills:
+
+* Backup automation scripting
+* Archive compression workflows
+* Disk space monitoring
+* Log analysis and troubleshooting
+* Service management with systemctl
+* Clean project structuring and documentation
+
+---
+
+## Author
+
+Linux backup & automation specialist
+Portfolio project focused on Bash scripting and system administration.
