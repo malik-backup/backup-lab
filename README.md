@@ -1,31 +1,39 @@
-# backup-lab — Linux backup automation (Bash + rsync)
+# Backup Lab — Bash + rsync automation
 
-Professional Bash project demonstrating automated Linux backup workflows with logging, compression, and basic system administration tasks.
+Professional Bash backup script demonstrating safe, automated Linux backups using **rsync**, logging, dry-run testing, and rotation.
 
-This repository simulates real-world maintenance operations performed by Linux administrators.
+This project simulates real-world system administration tasks used in freelance Linux backup automation.
 
 ---
 
 ## Features
 
-* Automated local backup using **rsync**
+* Local automated backups using `rsync`
 * Dry-run mode for safe testing
 * Timestamped execution logs
-* Archive compression using **tar.gz**
-* Disk usage monitoring and quick space checks
-* Log inspection and service troubleshooting with **journalctl**
-* Basic system service management (**systemctl**)
-* Clean and organized project structure
+* Automatic backup rotation
+* Safety checks to prevent overwrite
+* External configuration file
+* Structured project layout
 
 ---
 
-## Tech stack
+## Use case (real world)
 
-* Linux / WSL
-* Bash
+This script can be adapted for:
+
+* server backups
+* workstation backup automation
+* scheduled cron backups
+* simple disaster recovery workflows
+
+---
+
+## Requirements
+
+* Linux (VM or server recommended)
+* bash
 * rsync
-* tar
-* systemctl / journalctl
 
 ---
 
@@ -37,7 +45,7 @@ cd backup-lab
 bash scripts/backup.sh
 ```
 
-Dry-run (simulation mode, no files written):
+Dry run mode:
 
 ```bash
 DRY_RUN=1 bash scripts/backup.sh
@@ -45,33 +53,49 @@ DRY_RUN=1 bash scripts/backup.sh
 
 ---
 
+## Configuration
+
+Edit:
+
+```
+scripts/backup.conf
+```
+
+Key variables:
+
+* source directory
+* destination directory
+* log directory
+* rotation settings
+
+---
+
 ## Project structure
 
 ```
 backup-lab/
-├── scripts/    # backup automation scripts
-├── data/       # sample data to back up
-├── backups/    # generated archives (ignored by Git)
-├── logs/       # execution logs (ignored by Git)
+├── scripts/     backup script(s)
+├── data/        sample data
+├── backups/     generated backups (ignored by Git)
+├── logs/        execution logs (ignored by Git)
 └── README.md
 ```
 
 ---
 
-## Skills demonstrated
+## Notes
 
-This project showcases practical Linux administration skills:
+This repository is a learning and portfolio project focused on:
 
-* Backup automation scripting
-* Archive compression workflows
-* Disk space monitoring
-* Log analysis and troubleshooting
-* Service management with systemctl
-* Clean project structuring and documentation
+* Bash scripting
+* backup automation
+* safe system administration practices
+* logging and error handling
+
+WSL is used for learning. Real deployments are intended for Linux VMs or servers.
 
 ---
 
 ## Author
 
-Linux backup & automation specialist
-Portfolio project focused on Bash scripting and system administration.
+Linux backup automation portfolio project.
