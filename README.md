@@ -53,6 +53,22 @@ DRY_RUN=1 bash scripts/backup.sh
 
 ---
 
+## Mini demo
+
+Example run:
+
+```
+bash scripts/backup.sh
+```
+
+Output:
+
+```
+[INFO] Starting backup...
+[OK] Backup completed: backups/2026-02-09_21-30-12
+[OK] Log written to logs/backup.log
+```
+
 ## Configuration
 
 Edit:
@@ -82,6 +98,13 @@ backup-lab/
 ```
 
 ---
+
+## Backup workflow
+
+data → backup.sh → backups/ + logs/
+
+The script reads configuration, copies data safely with rsync,
+creates timestamped backups and writes execution logs.
 
 ## Notes
 
