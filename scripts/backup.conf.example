@@ -6,6 +6,6 @@
 # KEEP: number of snapshots to keep
 
 SRC="$HOME/backup-lab"
-DEST="/mnt/c/SAFE/backups"
-LOGDIR="/mnt/c/SAFE/logs"
+DEST="/backup/storage"
+LOGDIR="/var/log/backup"
 KEEP=7
