@@ -254,7 +254,7 @@ Mon approche : pas de matériel cher, juste une vraie méthode — sauvegardes a
 
 
 
-🔗 LinkedIn : \[Abdelmalik OUYALIZE](https://www.linkedin.com/in/abdelmalik-ouyalize/)
+🔗 LinkedIn : \[Abdelmalik OUYALIZE](https://www.linkedin.com/in/abdelmalik-ouyalize-2914413b1/)
 
 📧 Disponible pour des missions Backup Audit \& Setup (Paris \& remote)
 
