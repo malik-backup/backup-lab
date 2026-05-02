@@ -77,17 +77,20 @@ Cette séparation permet de réutiliser le même script sur plusieurs serveurs a
 
 ## Exemple d'exécution
 
+```
 2026-04-22 08:30:01 [INFO] RUN started
 2026-04-22 08:30:01 [INFO] Loading config: scripts/backup.conf
 2026-04-22 08:30:02 [INFO] rsync started
 2026-04-22 08:30:14 [INFO] rsync succeeded
 2026-04-22 08:30:14 [INFO] Rotation: kept 7 most recent backups
 2026-04-22 08:30:14 [INFO] RUN finished successfully
+```
 
 ---
 
 ## Structure du projet
 
+```
 backup-lab/
 ├── scripts/
 │   ├── backup.sh              # Script principal
@@ -97,13 +100,16 @@ backup-lab/
 ├── backups/                   # Sauvegardes (ignoré par Git)
 ├── logs/                      # Logs (ignoré par Git)
 └── README.md
+```
 
 ---
 
 ## Workflow
 
+```
 data/ → backup.sh → backups/<timestamp>/
 → logs/backup-<date>.log
+```
 
 Le script lit la configuration, copie les données via rsync, crée une sauvegarde horodatée, écrit les logs, et applique la rotation.
 
