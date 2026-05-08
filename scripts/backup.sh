@@ -35,6 +35,9 @@ log_error() {
 # Validate KEEP (must be a positive integer)
 [[ "${KEEP:-}" =~ ^[0-9]+$ ]] || { log_error "KEEP must be a number"; exit 3; }
 
+# Validate DRY_RUN (must be 0 or 1)
+[[ "${DRY_RUN}" =~ ^[01]$ ]] || { log_error "DRY_RUN must be 0 or 1"; exit 3; }
+
 # --- ERROR HANDLING ---
 # shellcheck disable=SC2317
 on_error() {
