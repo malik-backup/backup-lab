@@ -20,7 +20,6 @@ fi
 # shellcheck disable=SC1090,SC1091
 source "$CONF_FILE"
 DRY_RUN="${DRY_RUN:-0}"
-[[ "${KEEP:-}" =~ ^[0-9]+$ ]] || { log_error "KEEP must be a number"; exit 3; }
 
 # --- LOGGING ---
 mkdir -p "$LOGDIR" 
@@ -32,6 +31,9 @@ log_info() {
 log_error() {
   echo "$(date '+%F %T') [ERROR] $*" | tee -a "$LOG" >&2
 }
+
+# Validate KEEP (must be a positive integer)
+[[ "${KEEP:-}" =~ ^[0-9]+$ ]] || { log_error "KEEP must be a number"; exit 3; }
 
 # --- ERROR HANDLING ---
 # shellcheck disable=SC2317
