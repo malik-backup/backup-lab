@@ -1,15 +1,9 @@
 # generated
 scripts/backup.conf
-scripts/*local*.conf
-scripts/*REMOTE*.conf
-scripts/backup.conf.d
 backups/
 logs/
 *.log
 tmp/
-
-# generated archives
-archives/
 
 # editor backups & temporary script copies
 *.bak
