@@ -57,7 +57,7 @@ run_cmd() {
     log_info "DRY-RUN: $*"
     return 0
   else
-    "$@"
+    "$@" >>"$LOG" 2>&1
   fi
 }
 
@@ -75,7 +75,7 @@ fi
 
 run_cmd mkdir -p "$TARGET"
 
-run_cmd rsync -av "$SRC/" "$TARGET/" >> "$LOG" 2>&1
+run_cmd rsync -av "$SRC/" "$TARGET/"
 if [[ "$DRY_RUN" != "1" ]]; then
 log_info "rsync succeeded"
 fi
