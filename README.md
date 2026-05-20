@@ -95,7 +95,6 @@ backup-lab/
 ├── scripts/
 │   ├── backup.sh              # Script principal
 │   ├── backup.conf.example    # Modèle de configuration
-│   └── compress.sh            # Compression optionnelle
 ├── data/                      # Données de test
 ├── backups/                   # Sauvegardes (ignoré par Git)
 ├── logs/                      # Logs (ignoré par Git)
