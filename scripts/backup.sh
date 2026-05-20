@@ -20,7 +20,6 @@ fi
 # shellcheck disable=SC1090,SC1091
 source "$CONF_FILE"
 DRY_RUN="${DRY_RUN:-0}"
-[[ "${KEEP:-}" =~ ^[0-9]+$ ]] || { log_error "KEEP must be a number"; exit 3; }
 
 # --- LOGGING ---
 mkdir -p "$LOGDIR" 
@@ -32,6 +31,12 @@ log_info() {
 log_error() {
   echo "$(date '+%F %T') [ERROR] $*" | tee -a "$LOG" >&2
 }
+
+# Validate KEEP (must be a positive integer)
+[[ "${KEEP:-}" =~ ^[0-9]+$ ]] || { log_error "KEEP must be a number"; exit 3; }
+
+# Validate DRY_RUN (must be 0 or 1)
+[[ "${DRY_RUN}" =~ ^[01]$ ]] || { log_error "DRY_RUN must be 0 or 1"; exit 3; }
 
 # --- ERROR HANDLING ---
 # shellcheck disable=SC2317
@@ -52,7 +57,7 @@ run_cmd() {
     log_info "DRY-RUN: $*"
     return 0
   else
-    "$@"
+    "$@" >>"$LOG" 2>&1
   fi
 }
 
@@ -70,7 +75,7 @@ fi
 
 run_cmd mkdir -p "$TARGET"
 
-run_cmd rsync -av "$SRC/" "$TARGET/" >> "$LOG" 2>&1
+run_cmd rsync -av "$SRC/" "$TARGET/"
 if [[ "$DRY_RUN" != "1" ]]; then
 log_info "rsync succeeded"
 fi
