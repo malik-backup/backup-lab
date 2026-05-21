@@ -18,6 +18,7 @@ Système de sauvegarde Linux scripté en Bash, conçu pour être fiable, monitor
 - Logs horodatés avec niveaux (INFO / ERROR)
 - Rotation automatique des sauvegardes (rétention configurable)
 - Vérifications de sécurité (pas d'écrasement accidentel)
+- Vérification d'intégrité par checksums SHA-256 et test de restauration automatisé
 - Configuration externalisée (`.conf`)
 - Gestion d'erreurs robuste (`set -Eeuo pipefail`, trap ERR)
 
@@ -95,6 +96,7 @@ backup-lab/
 ├── scripts/
 │   ├── backup.sh              # Script principal
 │   ├── backup.conf.example    # Modèle de configuration
+│   └── restore-test.sh        # Test de restauration automatisé
 ├── data/                      # Données de test
 ├── backups/                   # Sauvegardes (ignoré par Git)
 ├── logs/                      # Logs (ignoré par Git)
@@ -124,12 +126,31 @@ Le script lit la configuration, copie les données via rsync, crée une sauvegar
 
 ---
 
+## Test de restauration
+
+Faire une sauvegarde ne suffit pas : encore faut-il qu'elle soit **réellement restaurable**. Ce projet vérifie l'intégrité des sauvegardes pour éviter le scénario classique — découvrir le jour J que l'archive est corrompue et inutilisable.
+
+À chaque sauvegarde, `backup.sh` génère un manifeste `checksums.sha256` pendant que les données sont saines. Le script `restore-test.sh` restaure ensuite la dernière sauvegarde dans un répertoire temporaire isolé, puis recalcule les empreintes pour les comparer au manifeste.
+
+```bash
+bash scripts/restore-test.sh
+```
+
+Mode test sans vérification réelle :
+
+```bash
+DRY_RUN=1 bash scripts/restore-test.sh
+```
+
+Le test ne touche jamais aux données source ni aux sauvegardes. Il restaure dans un `tmp` isolé, vérifie, puis nettoie automatiquement. Codes de sortie : `0` (sauvegarde restaurable), `2` (corruption détectée), `1` ou `3` (erreur d'environnement ou de configuration). Ce code de sortie explicite permet l'automatisation via `cron` et l'intégration de futures alertes.
+
+---
+
 ## Roadmap
 
 Fonctionnalités prévues dans les prochaines versions :
 
 - [ ] Sauvegarde distante via SSH / rsync over SSH
-- [ ] Test de restauration automatisé (vérification de l'intégrité des sauvegardes)
 - [ ] Alertes par email en cas d'échec
 - [ ] Support de la sauvegarde incrémentale
 

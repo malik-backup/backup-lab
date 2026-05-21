@@ -4,8 +4,12 @@
 # DEST: where snapshots are created
 # LOGDIR: where logs are written
 # KEEP: number of snapshots to keep
+# CHECKSUM_FILE: integrity manifest name (SHA-256)
+# RESTORE_TMP_PARENT: parent dir for restore-test (empty = system tmp)
 
 SRC="$HOME/backup-lab"
 DEST="/backup/storage"
 LOGDIR="/var/log/backup"
 KEEP=7
+CHECKSUM_FILE="checksums.sha256"
+RESTORE_TMP_PARENT=""

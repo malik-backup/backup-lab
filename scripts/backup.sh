@@ -75,11 +75,29 @@ fi
 
 run_cmd mkdir -p "$TARGET"
 
-run_cmd rsync -av "$SRC/" "$TARGET/"
+run_cmd rsync -av \
+  --exclude='.git' \
+  --exclude='backups' \
+  --exclude='logs' \
+  "$SRC/" "$TARGET/"
 if [[ "$DRY_RUN" != "1" ]]; then
 log_info "rsync succeeded"
 fi
 
+# --- INTEGRITY MANIFEST (SHA-256) ---
+# Generated while data is fresh: reference for the restore test.
+CHECKSUM_FILE="${CHECKSUM_FILE:-checksums.sha256}"
+if [[ "$DRY_RUN" = "1" ]]; then
+  log_info "DRY-RUN: would generate manifest $TARGET/$CHECKSUM_FILE"
+else
+  (
+    cd "$TARGET" || exit 1
+    find . -type f ! -name "$CHECKSUM_FILE" -print0 \
+      | sort -z \
+      | xargs -0 sha256sum > "$CHECKSUM_FILE"
+  )
+  log_info "manifest generated ($(wc -l < "$TARGET/$CHECKSUM_FILE") files)"
+fi
 # --- ROTATION (keep last $KEEP) ---
 # Safety checks before rotation
 [[ -n "${DEST:-}" ]] || { log_error "DEST is empty"; exit 3; }
